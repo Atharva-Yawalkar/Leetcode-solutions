@@ -1,0 +1,15 @@
+class Solution {
+public:
+    int pivotIndex(vector<int>& nums) {
+        int n=nums.size();
+        int left = 0;
+        int right = accumulate(nums.begin(), nums.end(), -nums[0]);
+        if(left == right) return 0;
+        for (int i=1;i<n;i++){
+            left+=nums[i-1];
+            right-=nums[i];
+            if(left == right) return i;
+        }
+        return -1;
+    }
+};
