@@ -1,0 +1,23 @@
+#include <bits/stdc++.h> 
+long long int sumOrProduct(long long int n, long long int q)
+{
+   int sum=0,pro=1;
+   int M= 1e9+7;
+   long long int i=1;
+   int ans;
+   while(i<=n)
+   {
+       if(q==1)
+       {
+           sum=sum+i;
+           ans=sum;
+       }
+       else if(q==2)
+       {
+           pro=(pro*i)%M;
+           ans=pro;
+       }
+       i++;
+   }
+   return ans;
+}
