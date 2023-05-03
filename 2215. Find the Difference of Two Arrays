@@ -1,0 +1,28 @@
+class Solution {
+public:
+    vector<vector<int>> findDifference(vector<int>& nums1, vector<int>& nums2) {
+        
+        map<int,int> m1;
+        map<int,int> m2;
+        vector<vector<int>> answer(2);      
+        for( auto x:nums1 ){
+            m1[x]++;
+        }
+        for( auto x:nums2 ){
+            m2[x]++;
+        }  
+        for( auto x:nums1 ){
+            if( m2.find(x) == m2.end() && m2[x] != -1 ) {   
+                m2[x]--;
+                answer[0].push_back(x);
+            }    
+        }
+        for( auto x:nums2 ){
+            if( m1.find(x) == m1.end() && m1[x] != -1 ){
+                m1[x]--;
+                answer[1].push_back(x);
+            }    
+        }
+        return answer;
+    }
+};
