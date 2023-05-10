@@ -1,0 +1,13 @@
+#include <bits/stdc++.h> 
+
+int ZeroPairSum(int n, vector<int> arr){
+    // Write your code here
+    int count =0;
+    for (int i=0;i<arr.size();i++){
+        for (int j=i+1;j<arr.size();j++){
+            if(arr[i]+arr[j]==0) count++;
+            else continue;
+        }
+    }
+    return count;
+}
