@@ -1,0 +1,21 @@
+class Solution {
+public:
+    vector<int> intersection(vector<int>& nums1, vector<int>& nums2) {
+        vector<int> ans;
+        unordered_map<int,int> mappi;
+        for(int i=0;i<nums1.size();i++)
+        {
+            mappi[nums1[i]]++;
+        }
+        for(int i=0;i<nums2.size();i++)
+        {
+            if(mappi[nums2[i]]>0)
+            {
+                ans.push_back(nums2[i]);
+            }
+        }
+        sort(ans.begin(),ans.end());
+        ans.erase(unique(ans.begin(),ans.end()),ans.end());
+        return ans;
+    }
+};
