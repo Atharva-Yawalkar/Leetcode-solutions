@@ -1,0 +1,16 @@
+#include <bits/stdc++.h> 
+vector<pair<char,int>> duplicate_char(string s, int n){
+    vector<pair<char, int>> ans;
+    vector<int> letters(128, 0);
+    for(int i=0;i<n;i++){
+        letters[((int)s[i])]++;
+    }
+    for(int i = 0; i < 128; i++){
+        if(letters[i]>=2){
+            char c = i;
+            pair<char, int> p = make_pair(c, letters[i]);
+            ans.emplace_back(p);
+        }
+    }
+    return ans;
+}
