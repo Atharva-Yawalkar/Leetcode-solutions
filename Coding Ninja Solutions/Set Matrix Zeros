@@ -1,0 +1,37 @@
+#include <bits/stdc++.h>
+
+void rowzero(int row, vector<vector<int>> & matrix){
+	for(int i=0;i<matrix[0].size();i++){
+		matrix[row][i]=0;
+	}
+}
+
+void colzero(int col, vector<vector<int>> & matrix){
+	for(int i=0;i<matrix.size();i++){
+		matrix[i][col]=0;
+	}
+}
+
+void setZeros(vector<vector<int>> &matrix)
+{
+	// Write your code here.
+	vector<int> row;
+	vector<int> col;
+
+	for (int i=0;i<matrix.size();i++){
+		for(int j=0;j<matrix[0].size();j++){
+			if(matrix[i][j]==0){
+				row.push_back(i);
+				col.push_back(j);
+			}
+		}
+	}
+
+	for(int i=0;i<row.size();i++){
+		rowzero(row[i], matrix);
+	}
+
+	for(int i=0;i<col.size();i++){
+		colzero(col[i], matrix);
+	}
+}
