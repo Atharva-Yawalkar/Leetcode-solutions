@@ -1,0 +1,25 @@
+#include <bits/stdc++.h> 
+
+void rotatearray(vector<int> &permutation, int start, int end){
+    for(int i=end;i>start;i--){
+        if(permutation[i]>permutation[start]){
+            swap(permutation[start], permutation[i]);
+            break;
+        }
+    }
+    reverse(permutation.begin()+start+1, permutation.end());
+}
+
+vector<int> nextPermutation(vector<int> &permutation, int n)
+{
+    //  Write your code here.
+    
+    for(int i=n-2;i>=0;i--){
+        if(permutation[i]<permutation[i+1]){
+            rotatearray(permutation, i, n-1);
+            return permutation;
+        }
+    }
+    sort(permutation.begin(), permutation.end());
+    return permutation;
+}
